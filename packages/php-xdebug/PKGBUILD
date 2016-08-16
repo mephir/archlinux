@@ -1,0 +1,43 @@
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Jonathan Wiersma <arch aur at jonw dot org>
+# Contributor: Jonathan Wiersma <arch aur at jonw dot org>
+# Contributor: sracker <smb.sac@gmail.com>
+# Maintainer: Pawel Wilk <pwilkmielno@gmail.com>
+
+pkgname=php56-xdebug
+_pkgname=xdebug
+pkgver=2.4.1
+pkgrel=1
+pkgdesc="PHP debugging extension"
+arch=('x86_64')
+url="http://www.xdebug.org"
+license=('GPL')
+depends=('php56')
+backup=('etc/php/conf.d/xdebug.ini')
+source=("http://www.xdebug.org/files/$_pkgname-${pkgver,,}.tgz"
+  'xdebug.ini')
+md5sums=('03f52af10108450942c9c0ac3b72637f'
+         '0e601dfb867b248f28d6a647611e4400')
+provides=('xdebug')
+conflicts=('xdebug')
+replaces=('xdebug')
+
+build() {
+  cd $srcdir/$_pkgname-$pkgver
+  phpize
+  ./configure --prefix=/usr --enable-xdebug
+  make
+
+  cd $srcdir/$_pkgname-$pkgver/debugclient
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd $srcdir/$_pkgname-$pkgver/debugclient
+  make DESTDIR=$pkgdir install
+
+  cd $srcdir/$_pkgname-$pkgver
+  make INSTALL_ROOT=$pkgdir install
+  install -D -m 644 $srcdir/xdebug.ini $pkgdir/etc/php/conf.d/xdebug.ini
+}
