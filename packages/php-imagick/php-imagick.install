@@ -2,7 +2,7 @@ post_install() {
   echo '
     ==> PHP56 extension
 
-    A config file was stored under /etc/php56/conf.d/ with the extension enabled.
+    A config file was stored under /etc/php/conf.d/ with the extension enabled.
     '
 }
 
