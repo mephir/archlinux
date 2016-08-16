@@ -1,23 +1,18 @@
-# Contributor: Mladen Milinkovic <maxrd2@smoothware.net>
-# Based on aur/php-imagick by Spencer Rinehart <anubis@overthemonkey.com>
-#
 # Maintainer: Pawel Wilk <pawel@bayzat.com>
 
-pkgname=php56-imagick
-_extname=imagick
-pkgver=3.1.2
+pkgname=php56-mailparse
+_extname=mailparse
+pkgver=2.1.6
 pkgrel=2
-pkgdesc="PHP extension for IMagick"
+pkgdesc="mailparse extension for PHP"
 arch=('i686' 'x86_64')
 url="http://pecl.php.net/package/${_extname}"
 license=('PHP')
-depends=('php56>=5.1.3' 'imagemagick>=6.2.4')
+depends=('php56')
 backup=("etc/php/conf.d/${_extname}.ini")
 install="php-${_extname}.install"
 source=("http://pecl.php.net/get/${_extname}-${pkgver}.tgz")
-md5sums=('f2fd71b026debe056e0ec8d76c2ffe94')
-conflicts=('php-imagick')
-replaces=('php-imagick')
+md5sums=('0f84e1da1d074a4915a9bcfe2319ce84')
 
 build() {
   cd "${_extname}-${pkgver}"
