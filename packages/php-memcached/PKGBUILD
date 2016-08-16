@@ -1,0 +1,34 @@
+# Maintainer: Pawel Wilk <pawel@bayzat.com>
+
+pkgname=php56-memcached
+_extname=memcached
+pkgver=2.2.0
+pkgrel=1
+pkgdesc="memcached extension for PHP"
+arch=('i686' 'x86_64')
+url="http://pecl.php.net/package/${_extname}"
+license=('PHP')
+depends=('php56')
+backup=("etc/php/conf.d/${_extname}.ini")
+install="php-${_extname}.install"
+source=("http://pecl.php.net/get/${_extname}-${pkgver}.tgz")
+md5sums=('28937c6144f734e000c6300242f44ce6')
+provides=('php-memcached')
+conflicts=('php-memcached')
+replaces=('php-memcached')
+
+build() {
+  cd "${_extname}-${pkgver}"
+
+  phpize
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "${_extname}-${pkgver}"
+
+  make INSTALL_ROOT="${pkgdir}" install
+  echo "extension=${_extname}.so" > "${_extname}.ini"
+  install -D -m644 "${_extname}.ini" "${pkgdir}/etc/php/conf.d/${_extname}.ini"
+}
