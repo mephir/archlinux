@@ -1,0 +1,7 @@
+[program:php-fpm]
+command = /usr/bin/php-fpm --nodaemonize --pid /run/php-fpm/php-fpm.pid
+pidfile = /run/php-fpm/php-fpm.pid
+user = root
+autostart = true
+autorestart = true
+priority = 5
