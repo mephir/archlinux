@@ -14,12 +14,6 @@ source=("${pkgname}::git+https://github.com/box-project/box2.git#tag=${pkgver}"
 md5sums=('SKIP'
          'e528f0c8922769c21ba05d535f1aa40e')
 
-prepare() {
-  cd ${srcdir}/${pkgname}
-
-  composer install --no-dev --prefer-dist
-}
-
 check() {
   cd ${srcdir}/${pkgname}
 
