@@ -8,7 +8,8 @@ arch=('any')
 license=('custom')
 url='https://box-project.github.io/box2/'
 depends=('php')
-makedepends=('composer' 'git')
+makedepends=('git')
+checkdepends=('composer')
 source=("${pkgname}::git+https://github.com/box-project/box2.git#tag=${pkgver}"
         "${pkgname}-${pkgver}.phar::https://github.com/box-project/box2/releases/download/${pkgver}/box-${pkgver}.phar")
 md5sums=('SKIP'
