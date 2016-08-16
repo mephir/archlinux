@@ -1,2 +1,5 @@
 repo/*
 tmp/*
+packages/*/pkg
+packages/*/src
+packages/*/*xz
