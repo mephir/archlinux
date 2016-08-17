@@ -86,7 +86,7 @@
 +;extension=gmp.so
 +;extension=iconv.so
 +;extension=imap.so
-+;extension=intl.so
++extension=intl.so
 +;extension=ldap.so
 +;extension=mcrypt.so
 +;extension=mssql.so
@@ -94,13 +94,13 @@
 +;extension=mysqli.so
 +;extension=odbc.so
 +;zend_extension=opcache.so
-+;extension=openssl.so
-+;extension=pdo_mysql.so
++extension=openssl.so
++extension=pdo_mysql.so
 +;extension=pdo_odbc.so
 +;extension=pdo_pgsql.so
 +;extension=pdo_sqlite.so
 +;extension=pgsql.so
-+;extension=phar.so
++extension=phar.so
 +;extension=posix.so
 +;extension=pspell.so
 +;extension=shmop.so
@@ -114,7 +114,7 @@
 +;extension=tidy.so
 +;extension=xmlrpc.so
 +;extension=xsl.so
-+;extension=zip.so
++extension=zip.so
  
  ;;;;;;;;;;;;;;;;;;;
  ; Module Settings ;
