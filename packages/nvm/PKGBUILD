@@ -1,0 +1,46 @@
+# Contributor: Tom Wadley <tom@tomwadley.net>
+# Maintainer: Pawel Wilk <pwilkmielno@gmail.com>
+
+pkgname=nvm
+pkgver=0.31.4
+pkgrel=1
+pkgdesc="Node Version Manager - Simple bash script to manage multiple active node.js versions"
+url="https://github.com/creationix/nvm"
+arch=('any')
+license=('MIT')
+optdepends=('bash: bash completion')
+install="${pkgname}.install"
+source=("https://github.com/creationix/nvm/archive/v${pkgver}.zip"
+        "init-nvm.sh"
+        "install-nvm-exec")
+md5sums=('e5a336c552b50a58e37590511bdbda81'
+         '1baa599ca9a724a42aff2bafb23a76ad'
+         '8f3c5b82f09636e9cf82d45d68c39cc6')
+
+build() {
+  cd "${pkgname}-${pkgver}"
+}
+
+package() {
+  cd "${srcdir}"
+
+  # convenience script
+  install -Dm644 init-nvm.sh "$pkgdir/usr/share/$pkgname/init-nvm.sh"
+
+  # companion script which installs nvm-exec in NVM_DIR where upstream expects it
+  install -Dm644 install-nvm-exec "$pkgdir/usr/share/$pkgname/install-nvm-exec"
+
+  cd "${pkgname}-${pkgver}"
+
+  # nvm itself
+  install -Dm644 nvm.sh "$pkgdir/usr/share/$pkgname/nvm.sh"
+
+  # nvm-exec script for 'nvm exec' command
+  install -Dm755 nvm-exec "$pkgdir/usr/share/$pkgname/nvm-exec"
+
+  # bash completion
+  install -Dm644 bash_completion "$pkgdir/usr/share/$pkgname/bash_completion"
+
+  # license
+  install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE.md"
+}
