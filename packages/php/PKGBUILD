@@ -29,7 +29,7 @@ pkgname=('php56'
          'php56-sqlite'
          'php56-tidy'
          'php56-xsl')
-pkgver=5.6.24
+pkgver=5.6.26
 pkgrel=5
 arch=('x86_64')
 license=('PHP')
@@ -46,7 +46,7 @@ source=("http://www.php.net/distributions/${pkgbase}-${pkgver}.tar.xz"
         "http://www.php.net/distributions/${pkgbase}-${pkgver}.tar.xz.asc"
         'php.ini.patch' 'apache.conf' 'php-fpm.conf.in.patch'
         'logrotate.d.php-fpm' 'php-fpm.service' 'php-fpm.tmpfiles' 'php-fpm.supervisor')
-md5sums=('3ef6e3573698b9b444be88edd3b23494'
+md5sums=('c51e9115263b4d63ef8f68935cefd7d4'
          'SKIP'
          '53d432ee4755c0010612d45aa58cea1e'
          'dec2cbaad64e3abf4f0ec70e1de4e8e9'
@@ -54,7 +54,7 @@ md5sums=('3ef6e3573698b9b444be88edd3b23494'
          '25bc67ad828e8147a817410b68d8016c'
          'cc2940f5312ba42e7aa1ddfab74b84c4'
          'c60343df74f8e1afb13b084d5c0e47ed'
-         '7293a0e003db2ae9871e9322881d67a2')
+         '5fc99ed7b672bd6f340e1443991f3e88')
 validpgpkeys=('6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3'
               '0BD78B5F97500D450838F95DFE857D9A90D90EC1')
 
@@ -298,7 +298,7 @@ package_php56-fpm() {
     provides=('php-fpm')
     conflicts=('php-fpm')
     replaces=('php-fpm')
-    optdepends=('systemd: php-fpm serv-ice support'
+    optdepends=('systemd: php-fpm service support'
                 'supervisor: php-fpm service support')
 
     install -D -m755 ${srcdir}/build-fpm/sapi/fpm/php-fpm ${pkgdir}/usr/bin/php-fpm
