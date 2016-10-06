@@ -30,7 +30,7 @@ pkgname=('php56'
          'php56-tidy'
          'php56-xsl')
 pkgver=5.6.26
-pkgrel=5
+pkgrel=6
 arch=('x86_64')
 license=('PHP')
 #provides=('php')
@@ -357,7 +357,7 @@ package_php56-enchant() {
 
 package_php56-gd() {
     pkgdesc='gd module for PHP'
-    depends=('php' 'gd')
+    depends=('php' 'gd' 'libvpx')
     provides=('php-gd')
     conflicts=('php-gd')
     replaces=('php-gd')
