@@ -6,7 +6,8 @@ Repository contains `x86_64` and `any` packages.
 
 ```
 [mephir]
-Server = http://arch.mephir.net/$arch
+#Server = http://arch.mephir.net/$arch
+Server = http://arch-repository.s3-website-ap-southeast-1.amazonaws.com
 SigLevel = Never
 ```
 
